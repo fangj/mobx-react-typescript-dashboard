@@ -1,0 +1,7 @@
+node_modules/
+.vscode
+.dist
+server/public/build/
+.idea/misc.xml
+.idea/workspace.xml
+
