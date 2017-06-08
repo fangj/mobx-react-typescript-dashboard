@@ -10,9 +10,15 @@ module.exports = {
         // vendor: []
     },
     externals: {
-        "antd": "antd",
-        "axios": "axios",
-        "geopattern": "GeoPattern",
+        'antd': 'antd',
+        'axios': 'axios',
+        'classnames': 'classNames',
+        'd3': 'd3',
+        'geopattern': 'GeoPattern',
+        'jquery': 'jQuery',
+        'lodash': '_',
+        'parse': 'Parse',
+        'pubsub-js': 'PubSub',
         'react': 'React',
         'react-dom': 'ReactDOM',
         'react-router': 'ReactRouter',
@@ -20,10 +26,9 @@ module.exports = {
         'mobx-react': 'mobxReact',
         'mockjs': 'Mock',
         'mobx-react-devtools': 'mobxDevtools',
-        "classnames": "classNames"
     },
     output: {
-        path: path.join(__dirname, "..", "server", "public", "build"),
+        path: path.join(__dirname, '..', 'server', 'public', 'build'),
         filename: '[name].js',
     },
     resolve: {
@@ -38,19 +43,19 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                loader: 'typings-for-css-modules-loader?modules&namedExport&camelCase'
+                loader: 'style-loader!typings-for-css-modules-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]&namedExport&camelCase'
             },
             {
                 test: /\.less$/,
-                loader: 'typings-for-css-modules-loader?modules&namedExport&camelCase&less'
+                loader: 'style-loader!typings-for-css-modules-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]&namedExport&camelCase&less'
             }
         ]
     },
-    plugins: [
-        new ExtractTextPlugin({filename: 'style.css', allChunks: true}),
-        //typings-for-css-modules-loader needs
-        new webpack.WatchIgnorePlugin([
-            /(less|css)\.d\.ts$/
-        ])
-    ]
+    // plugins: [
+    //     new ExtractTextPlugin({filename: 'style.css', allChunks: true}),
+    //     //typings-for-css-modules-loader needs
+    //     new webpack.WatchIgnorePlugin([
+    //         /(less|css)\.d\.ts$/
+    //     ])
+    // ]
 };
