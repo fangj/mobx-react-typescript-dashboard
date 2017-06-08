@@ -42,20 +42,23 @@ module.exports = {
                 include: path.join(__dirname, 'src')
             },
             {
-                test: /\.css$/,
-                loader: 'style-loader!typings-for-css-modules-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]&namedExport&camelCase'
-            },
-            {
-                test: /\.less$/,
-                loader: 'style-loader!typings-for-css-modules-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]&namedExport&camelCase&less'
+                test: /\.(css|less$)$/,
+                use: ExtractTextPlugin.extract({
+                    fallback: 'style-loader',
+                    use: [
+                        {
+                            loader: 'typings-for-css-modules-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]&namedExport&camelCase&less'
+                        }
+                    ]
+                })
             }
         ]
     },
-    // plugins: [
-    //     new ExtractTextPlugin({filename: 'style.css', allChunks: true}),
-    //     //typings-for-css-modules-loader needs
-    //     new webpack.WatchIgnorePlugin([
-    //         /(less|css)\.d\.ts$/
-    //     ])
-    // ]
+    plugins: [
+        new ExtractTextPlugin({filename: 'style.css', allChunks: true}),
+        //typings-for-css-modules-loader needs
+        new webpack.WatchIgnorePlugin([
+            /(less|css)\.d\.ts$/
+        ])
+    ]
 };

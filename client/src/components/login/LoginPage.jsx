@@ -3,7 +3,6 @@ import * as GeoPattern from "geopattern";
 import * as cx from "classnames";
 import LoginForm from "./LoginForm";
 import * as styles from "./LoginPage.less";
-console.log("styles.verticalContainer", styles.verticalContainer);
 const pattern = GeoPattern.generate('olx');
 
 const bgStyle = {backgroundImage: pattern.toDataUrl()};
