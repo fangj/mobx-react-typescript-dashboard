@@ -36,30 +36,7 @@ module.exports = {
                 include: path.join(__dirname, 'src')
             },
             {
-                test: /\.css$/,
-                use: ExtractTextPlugin.extract({
-                    fallback: 'style-loader',
-                    use: [
-                        {
-                            loader: 'css-loader',
-                            options: {
-                                modules: true,
-                                importLoaders: 1,
-                                camelCase: true,
-                                localIdentName: '[name]_[local]_[hash:base64:5]'
-                            }
-                        },
-                        {
-                            loader: 'typed-css-modules-loader',
-                            options: {
-                                camelCase: true
-                            }
-                        }
-                    ]
-                })
-            },
-            {
-                test: /\.less$/,
+                test: /\.(css|less)$/,
                 use: ExtractTextPlugin.extract({
                     fallback: 'style-loader',
                     use: [
