@@ -1,5 +1,6 @@
 import * as React from "react";
 import * as GeoPattern from "geopattern";
+import * as cx from "classnames";
 import LoginForm from "./LoginForm";
 const styles = require("./LoginPage.less");
 
@@ -7,7 +8,7 @@ const pattern = GeoPattern.generate('olx');
 
 const bgStyle = {backgroundImage: pattern.toDataUrl()};
 
-const LoginPage = () => <div className={styles.loginBg + " " + styles.verticalContainer} style={bgStyle}>
+const LoginPage = () => <div className={cx(styles.loginBg, styles.verticalContainer)} style={bgStyle}>
     <LoginForm onSubmit={handleSubmit}/>
 </div>;
 

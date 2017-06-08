@@ -20,7 +20,6 @@ module.exports = {
         'mobx-react': 'mobxReact',
         'mockjs': 'Mock',
         'mobx-react-devtools': 'mobxDevtools',
-        "classnames": "classNames"
     },
     output: {
         path: path.join(__dirname, "..", "server", "public", "build"),
@@ -73,12 +72,13 @@ module.exports = {
                                 localIdentName: '[name]_[local]_[hash:base64:5]'
                             }
                         },
-                        {
-                            loader: 'typed-css-modules-loader',
-                            options: {
-                                camelCase: true
-                            }
-                        },
+                        //会导致卡住
+                        // {
+                        //     loader: 'typed-css-modules-loader',
+                        //     options: {
+                        //         camelCase: true
+                        //     }
+                        // },
                         {
                             loader: 'less-loader'
                         }
