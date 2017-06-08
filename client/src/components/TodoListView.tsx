@@ -1,26 +1,18 @@
-/**
- * Created by FangJian on 2017/6/6.
- */
-
 import * as React from "react";
 import {observer} from "mobx-react";
 import TodoView from "./TodoView";
-import SummaryView from "./SummaryView";
-import TodoList from "../stores/TodoList";
-import DevTools from "mobx-react-devtools";
+import Todo from "../stores/Todo";
 
 @observer
-export default class TodoListView extends React.Component<{ todoList: TodoList }, {}> {
+export default class TodoListView extends React.Component<{ todos: Todo[] }, {}> {
     render() {
-        const store = this.props.todoList;
+        const todos = this.props.todos;
         return <div>
             <ul>
-                {store.todos.map(todo =>
+                {todos.map(todo =>
                     <TodoView todo={todo} key={todo.id}/>
                 )}
             </ul>
-            <SummaryView todoList={store}/>
-            <DevTools />
         </div>
     }
 }

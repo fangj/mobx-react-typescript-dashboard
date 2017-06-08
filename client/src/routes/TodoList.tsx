@@ -1,6 +1,6 @@
 import * as React from "react";
+import TodoAppView from "../components/TodoAppView";
 import TodoList from "../stores/TodoList";
-import TodoListView from "../components/TodoListView";
 import Todo from "../stores/Todo";
 import "../mock/TodoMock"; //mock data for test ajax
 import * as TodoService from "../services/TodoService";
@@ -17,5 +17,5 @@ TodoService.getTodoList().then(titles => {
 });
 
 export default () => {
-    return (<TodoListView todoList={store}/>)
+    return (<TodoAppView todoList={store}/>)
 }

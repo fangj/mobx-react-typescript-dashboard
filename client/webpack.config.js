@@ -35,55 +35,56 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                use: [
-                    {
-                        loader: 'style-loader'
-                    },
-                    {
-                        loader: 'css-loader',
-                        options: {
-                            modules: true,
-                            importLoaders: 1,
-                            camelCase: true,
-                            localIdentName: '[name]_[local]_[hash:base64:5]'
+                use: ExtractTextPlugin.extract({
+                    fallback: 'style-loader',
+                    use: [
+                        {
+                            loader: 'css-loader',
+                            options: {
+                                modules: true,
+                                importLoaders: 1,
+                                camelCase: true,
+                                localIdentName: '[name]_[local]_[hash:base64:5]'
+                            }
+                        },
+                        {
+                            loader: 'typed-css-modules-loader',
+                            options: {
+                                camelCase: true
+                            }
                         }
-                    },
-                    {
-                        loader: 'typed-css-modules-loader',
-                        options: {
-                            camelCase: true
+                    ]
+                })
+            },
+            {
+                test: /\.less/,
+                use: ExtractTextPlugin.extract({
+                    fallback: 'style-loader',
+                    use: [
+                        {
+                            loader: 'css-loader',
+                            options: {
+                                modules: true,
+                                importLoaders: 1,
+                                camelCase: true,
+                                localIdentName: '[name]_[local]_[hash:base64:5]'
+                            }
+                        },
+                        {
+                            loader: 'typed-css-modules-loader',
+                            options: {
+                                camelCase: true
+                            }
+                        },
+                        {
+                            loader: 'less-loader'
                         }
-                    }
-                ]
+                    ]
+                })
             }
         ]
     },
-    // module: {
-    //     loaders: [
-    //         {
-    //             test: /\.tsx?$/,
-    //             loaders: ['awesome-typescript-loader'],
-    //             include: path.join(__dirname, 'src')
-    //         },
-    //         // css
-    //         {
-    //             test: /\.css$/,
-    //             loader: ExtractTextPlugin.extract({
-    //                 fallback:'style-loader',
-    //                 use:'css-loader?modules&importLoaders=1&localIdentName=[local]__[hash:base64:5]'
-    //             })
-    //         },
-    //         //less
-    //         {
-    //             test: /\.less$/,
-    //             loader: ExtractTextPlugin.extract({
-    //                 fallback:'style-loader',
-    //                 use:'css-loader?modules&importLoaders=1&localIdentName=[local]__[hash:base64:5]!less-loader'
-    //             })
-    //         }
-    //     ]
-    // },
-    // plugins:[
-    //     new ExtractTextPlugin({filename:'style.css', allChunks: true})
-    // ]
+    plugins: [
+        new ExtractTextPlugin({filename: 'style.css', allChunks: true})
+    ]
 };
