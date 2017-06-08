@@ -37,34 +37,20 @@ module.exports = {
                 include: path.join(__dirname, 'src')
             },
             {
-                test: /\.(css|less)$/,
-                use: ExtractTextPlugin.extract({
-                    fallback: 'style-loader',
-                    use: [
-                        {
-                            loader: 'css-loader',
-                            options: {
-                                modules: true,
-                                importLoaders: 1,
-                                camelCase: true,
-                                localIdentName: '[name]_[local]_[hash:base64:5]'
-                            }
-                        },
-                        {
-                            loader: 'less-loader'
-                        },
-                        {
-                            loader: 'typed-css-modules-loader',
-                            options: {
-                                camelCase: true
-                            }
-                        }
-                    ]
-                })
+                test: /\.css$/,
+                loader: 'typings-for-css-modules-loader?modules&namedExport&camelCase'
+            },
+            {
+                test: /\.less$/,
+                loader: 'typings-for-css-modules-loader?modules&namedExport&camelCase&less'
             }
         ]
     },
     plugins: [
-        new ExtractTextPlugin({filename: 'style.css', allChunks: true})
+        new ExtractTextPlugin({filename: 'style.css', allChunks: true}),
+        //typings-for-css-modules-loader needs
+        new webpack.WatchIgnorePlugin([
+            /(less|css)\.d\.ts$/
+        ])
     ]
 };

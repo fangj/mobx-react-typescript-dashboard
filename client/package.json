@@ -3,9 +3,8 @@
   "version": "1.0.0",
   "description": "Boilerplate for MobX + React project with Typescript, ES6 compilation and hot code reloading",
   "scripts": {
-    "less": "tcm -p src/**/*.less -c",
     "start": "node server.js",
-    "build": "npm run less && webpack --config webpack.config.dist.js -p --progress --colors"
+    "build": "webpack --config webpack.config.js -p --progress --colors"
   },
   "repository": {
     "type": "git",
@@ -34,9 +33,8 @@
     "less": "^2.7.2",
     "less-loader": "^4.0.4",
     "style-loader": "^0.18.2",
-    "typed-css-modules": "^0.2.0",
-    "typed-css-modules-loader": "0.0.9",
     "typescript": "^2.3.4",
+    "typings-for-css-modules-loader": "^1.5.0",
     "webpack": "^2.2.1",
     "webpack-dev-server": "^2.4.1"
   },
