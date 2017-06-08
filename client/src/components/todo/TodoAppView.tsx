@@ -6,7 +6,7 @@ import * as React from "react";
 import {observer} from "mobx-react";
 import SummaryView from "./SummaryView";
 import ListView from "./TodoListView";
-import TodoList from "../stores/TodoList";
+import TodoList from "../../stores/TodoList";
 import DevTools from "mobx-react-devtools";
 
 interface ITodoAppView {

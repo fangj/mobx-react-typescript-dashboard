@@ -10,7 +10,9 @@ module.exports = {
         // vendor: []
     },
     externals: {
+        "antd": "antd",
         "axios": "axios",
+        "geopattern": "GeoPattern",
         'react': 'React',
         'react-dom': 'ReactDOM',
         'react-router': 'ReactRouter',
@@ -24,12 +26,12 @@ module.exports = {
         filename: '[name].js',
     },
     resolve: {
-        extensions: ['.js', '.ts', '.tsx', '.css', '.less']
+        extensions: ['.ts', '.tsx', '.js', '.jsx', '.less', '.css']
     },
     module: {
         rules: [
             {
-                test: /\.tsx?$/,
+                test: /\.[tj]sx?$/,
                 loader: 'awesome-typescript-loader',
                 include: path.join(__dirname, 'src')
             },

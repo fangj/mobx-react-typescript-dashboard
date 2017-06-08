@@ -4,7 +4,7 @@
 
 import {observer} from "mobx-react";
 import * as React from "react";
-import TodoList from "../stores/TodoList";
+import TodoList from "../../stores/TodoList";
 // import * as style from "./style.css";
 import * as style from "./SummaryView.less";
 

@@ -3,7 +3,7 @@
  */
 import * as React from "react";
 import {observer} from "mobx-react";
-import Todo from "../stores/Todo";
+import Todo from "../../stores/Todo";
 
 interface ITodoView {
     todo: Todo;

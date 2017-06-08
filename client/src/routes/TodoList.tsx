@@ -1,5 +1,5 @@
 import * as React from "react";
-import TodoAppView from "../components/TodoAppView";
+import TodoAppView from "../components/todo/TodoAppView";
 import TodoList from "../stores/TodoList";
 import Todo from "../stores/Todo";
 import "../mock/TodoMock"; //mock data for test ajax
