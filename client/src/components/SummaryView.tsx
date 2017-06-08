@@ -13,6 +13,6 @@ interface ISummaryView {
 }
 
 const SummaryView = observer((props: ISummaryView) =>
-    <div className={style.summary}>Tasks left: {props.todoList.unfinishedTodoCount}</div>
+    <div className={style.summary}>Tasks Left: {props.todoList.unfinishedTodoCount}</div>
 );
 export default SummaryView;
