@@ -9,8 +9,8 @@ import TodoList from "./routes/TodoList";
 ReactDOM.render((
     <Router history={hashHistory}>
         <Route path="/login" component={LoginPage}/>
-        <Route path="/homepage" component={HomePage}/>
-        <Route path="/todolist" component={TodoList}/>
-        <Route path="*" component={TodoList}/>
+        <Route path="/home" component={HomePage}/>
+        <Route path="/todo" component={TodoList}/>
+        <Route path="*" component={LoginPage}/>
     </Router>
 ), document.getElementById('root'));
