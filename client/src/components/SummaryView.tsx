@@ -5,12 +5,13 @@
 import {observer} from "mobx-react";
 import * as React from "react";
 import TodoList from "../stores/TodoList";
+import * as style from "./style.css";
 
 interface ISummaryView {
     todoList: TodoList;
 }
 
 const SummaryView = observer((props: ISummaryView) =>
-    <div>Tasks left: {props.todoList.unfinishedTodoCount}</div>
+    <div className={style.summary}>Tasks left: {props.todoList.unfinishedTodoCount}</div>
 );
 export default SummaryView;
