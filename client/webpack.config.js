@@ -44,11 +44,24 @@ module.exports = {
                 include: path.join(__dirname, 'src')
             },
             {
-                test: /\.(css|less$)$/,
+                test: /\.css$/,
                 use: ExtractTextPlugin.extract({
                     fallback: 'style-loader',
                     use: [
                         {
+                            //.css的className 保持原样
+                            loader: 'typings-for-css-modules-loader?modules&importLoaders=1&localIdentName=[local]&namedExport&camelCase'
+                        }
+                    ]
+                })
+            },
+            {
+                test: /\.less$/,
+                use: ExtractTextPlugin.extract({
+                    fallback: 'style-loader',
+                    use: [
+                        {
+                            //.less的className 进行修饰
                             loader: 'typings-for-css-modules-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]&namedExport&camelCase&less'
                         }
                     ]

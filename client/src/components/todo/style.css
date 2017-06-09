@@ -1,4 +1,21 @@
 /* style.css */
+#root{
+    height: 100%;
+}
 .summary {
     background-color: wheat;
+}
+.vertical-container {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    height: 100%;
+}
+.todoContainer{
+    width:50%;
+    padding:10px;
+    box-shadow: lightblue 0px 0px 20px 5px;
 }

@@ -8,6 +8,8 @@ import SummaryView from "./SummaryView";
 import ListView from "./TodoListView";
 import TodoListStore from "../../stores/TodoListStore";
 import DevTools from "mobx-react-devtools";
+import * as styles from './style.css';
+import * as cx from 'classnames';
 
 interface ITodoAppView {
     todoListStore: TodoListStore
@@ -16,16 +18,18 @@ interface ITodoAppView {
 @observer
 export default class TodoAppView extends React.Component<ITodoAppView, {}> {
 
-    static defaultProps: ITodoAppView={
+    static defaultProps: ITodoAppView = {
         todoListStore: new TodoListStore()
     }
 
     render() {
         const todoListStore = this.props.todoListStore;
-        return <div>
-            <ListView todoStores={todoListStore.todoStores}/>
-            <SummaryView todoListStore={todoListStore}/>
-            <DevTools />
+        return <div className={styles.verticalContainer}>
+            <div className={styles.todoContainer}>
+                <ListView todoStores={todoListStore.todoStores}/>
+                <SummaryView todoListStore={todoListStore}/>
+                <DevTools />
+            </div>
         </div>
     }
 }
