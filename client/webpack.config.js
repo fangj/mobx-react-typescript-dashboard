@@ -10,6 +10,7 @@ module.exports = {
         // vendor: []
     },
     externals: {
+        'alertify':'alertify',
         'antd': 'antd',
         'axios': 'axios',
         'classnames': 'classNames',
@@ -22,6 +23,7 @@ module.exports = {
         'react': 'React',
         'react-dom': 'ReactDOM',
         'react-router': 'ReactRouter',
+        'toastr':'toastr',
         'mobx': 'mobx',
         'mobx-react': 'mobxReact',
         'mockjs': 'Mock',
