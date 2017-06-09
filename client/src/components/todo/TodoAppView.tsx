@@ -6,21 +6,27 @@ import * as React from "react";
 import {observer} from "mobx-react";
 import SummaryView from "./SummaryView";
 import ListView from "./TodoListView";
-import TodoList from "../../stores/TodoList";
+import TodoListStore from "../../stores/TodoListStore";
 import DevTools from "mobx-react-devtools";
 
 interface ITodoAppView {
-    todoList: TodoList
+    todoListStore: TodoListStore
 }
 
 @observer
 export default class TodoAppView extends React.Component<ITodoAppView, {}> {
+
+    static defaultProps: ITodoAppView={
+        todoListStore: new TodoListStore()
+    }
+
     render() {
-        const todoList = this.props.todoList;
+        const todoListStore = this.props.todoListStore;
         return <div>
-            <ListView todos={todoList.todos}/>
-            <SummaryView todoList={todoList}/>
+            <ListView todoStores={todoListStore.todoStores}/>
+            <SummaryView todoListStore={todoListStore}/>
             <DevTools />
         </div>
     }
 }
+

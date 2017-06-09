@@ -5,6 +5,10 @@
 import axios, {AxiosResponse} from "axios";
 const getData = (resp: AxiosResponse) => resp.data;
 
-export function getTodoList() {
-    return axios.get("/mock/todolist").then(getData);
+
+export default class TodoService{
+    getTodoList() {
+        return axios.get("/mock/todolist").then(getData);
+    }
 }
+

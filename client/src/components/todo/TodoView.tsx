@@ -3,19 +3,20 @@
  */
 import * as React from "react";
 import {observer} from "mobx-react";
-import Todo from "../../stores/Todo";
+import TodoStore from "../../stores/TodoStore";
 
 interface ITodoView {
-    todo: Todo;
+    todoStore: TodoStore;
 }
 
-const TodoView = observer(({todo}: ITodoView) =>
-    <li>
-        <input
-            type="checkbox"
-            checked={todo.finished}
-            onChange={e => todo.toggle()}
-        />{todo.title}
-    </li>
+const TodoView = observer(
+    ({todoStore=new TodoStore("TodoItem")}: ITodoView) =>
+        <li>
+            <input
+                type="checkbox"
+                checked={todoStore.finished}
+                onChange={e => todoStore.toggle()}
+            />{todoStore.title}
+        </li>
 );
 export default TodoView;

@@ -3,7 +3,7 @@
  */
 import {observable} from "mobx";
 
-export default class Todo {
+export default class TodoStore {
     id = Math.random();
     @observable title;
     @observable finished = false;

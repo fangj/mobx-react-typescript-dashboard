@@ -28586,7 +28586,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	}
 	
 	/**
-	 * todo isaac: Do work to turn html/rtf into a content fragment.
+	 * todoStore isaac: Do work to turn html/rtf into a content fragment.
 	 */
 	function readFile(file, callback) {
 	  if (!global.FileReader || file.type && !(file.type in TEXT_TYPES)) {
@@ -35006,7 +35006,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    return b - a;
 	  });
 	  // const s = Date.now();
-	  // todo: there are performance issues!
+	  // todoStore: there are performance issues!
 	  levelArr.reduce(function (pre, cur) {
 	    if (cur && cur !== pre) {
 	      levelObj[pre].forEach(function (item) {
@@ -35089,7 +35089,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  return pos.split('-');
 	}
 	
-	// todo: do optimization.
+	// todoStore: do optimization.
 	function handleCheckState(obj, checkedPositionArr, checkIt) {
 	  // console.log(stripTail('0-101-000'));
 	  // let s = Date.now();
@@ -35266,7 +35266,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  });
 	}
 	
-	// Get the tree's checkedNodes (todo: can merge to the `handleCheckState` function)
+	// Get the tree's checkedNodes (todoStore: can merge to the `handleCheckState` function)
 	// If one node checked, it's all children nodes checked.
 	// If sibling nodes all checked, the parent checked.
 	function filterAllCheckedData(vs, treeNodes) {
@@ -104676,7 +104676,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  };
 	
 	  TreeNode.prototype.onDragOver = function onDragOver(e) {
-	    // todo disabled
+	    // todoStore disabled
 	    e.preventDefault();
 	    e.stopPropagation();
 	    this.props.root.onDragOver(e, this);
