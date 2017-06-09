@@ -1,0 +1,28 @@
+body.loading {
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    background:  #2F2727 radial-gradient(circle, #1a82f7, #2F2727);
+}
+
+.loading #loading-prompt {
+    display: flex;
+}
+
+.loading #root {
+    display: none;
+}
+
+.vertical-container {
+    height: 100%;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+}
+
+#loading-prompt{
+    display:none;
+}
