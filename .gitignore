@@ -4,4 +4,5 @@ node_modules/
 server/public/build/
 .idea/misc.xml
 .idea/workspace.xml
-
+*.css.d.ts
+*.less.d.ts
