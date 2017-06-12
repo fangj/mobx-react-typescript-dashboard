@@ -19,7 +19,7 @@ export default class TodoAppView extends React.Component<ITodoAppView, {}> {
 
     static defaultProps: ITodoAppView = {
         todoListStore: new TodoListStore()
-    }
+    };
 
     render() {
         const todoListStore = this.props.todoListStore;
