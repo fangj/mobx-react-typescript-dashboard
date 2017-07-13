@@ -1,26 +1,24 @@
 import * as React from "react";
 import {observer} from "mobx-react";
-import TodoStore from "../../stores/TodoStore";
-import TodoView from "./TodoView";
-//import * as styles from './TodoListView.less';
+
 
 interface ITodoListView {
-    todoStores: TodoStore[];
+    todoItems: string[]
 }
 
 @observer
 export default class TodoListView extends React.Component<ITodoListView, {}> {
 
     static defaultProps: ITodoListView = {
-        todoStores:[]
+        todoItems:[]
     };
 
     render() {
-        const todoStores = this.props.todoStores;
+        const todoItems = this.props.todoItems;
         return (<div>
             <ul>
-                {todoStores.map(todoStore =>
-                    <TodoView todoStore={todoStore} key={todoStore.id}/>
+                {todoItems.map((todoItem,idx) =>
+                    <li key={idx}>{todoItem}</li>
                 )}
             </ul>
         </div>)

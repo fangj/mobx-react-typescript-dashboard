@@ -1,21 +1,23 @@
 import * as React from "react";
 import TodoAppView from "../components/todo/TodoAppView";
 import TodoListStore from "../stores/TodoListStore";
-import TodoStore from "../stores/TodoStore";
 import "../mock/TodoMock"; //mock data for test ajax
 import TodoService from "../services/TodoService";
 // require ("./TodoListStore.less");
 
+//初始化store
 const todoListStore = new TodoListStore();
-todoListStore.todoStores.push(
-    new TodoStore("Get Coffee"),
-    new TodoStore("Write simpler code")
-);
-todoListStore.todoStores[0].finished = true;
 
+//直接push数据
+todoListStore.todoItems.push(
+    "Get Coffee",
+    "Write simpler code"
+);
+
+//从service取得数据
 const todoService=new TodoService();
 todoService.getTodoList().then(titles => {
-    todoListStore.addTitles(titles);
+    titles.map(title=>todoListStore.add(title));
 });
 
 export default () => {

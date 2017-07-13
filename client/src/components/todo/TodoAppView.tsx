@@ -25,7 +25,7 @@ export default class TodoAppView extends React.Component<ITodoAppView, {}> {
         const todoListStore = this.props.todoListStore;
         return <div className={styles.verticalContainer}>
             <div className={styles.todoContainer}>
-                <TodoListView todoStores={todoListStore.todoStores}/>
+                <TodoListView todoItems={todoListStore.todoItems}/>
                 <SummaryView todoListStore={todoListStore}/>
                 <DevTools />
             </div>

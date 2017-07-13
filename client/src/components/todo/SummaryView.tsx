@@ -19,6 +19,6 @@ export default class SummaryView extends React.Component<ISummaryView, {}> {
 
     render() {
         const todoListStore = this.props.todoListStore;
-        return (<div className={style.summary}>Tasks Left: {todoListStore.unfinishedTodoCount}</div>)
+        return (<div className={style.summary}>Tasks count: {todoListStore.count}</div>)
     }
 }
