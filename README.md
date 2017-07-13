@@ -20,7 +20,7 @@ npm run dev
 ```
 ### 架构：
 
-![架构](doc/parts.svg)
+![架构](https://github.com/fangj/mobx-react-typescript-startkit/raw/master/doc/parts.png)
 
 ### 以todolist为例
 * 数据库结构(mongoDB)
