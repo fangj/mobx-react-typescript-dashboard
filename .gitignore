@@ -6,3 +6,12 @@ server/public/build/
 .idea/workspace.xml
 *.css.d.ts
 *.less.d.ts
+
+logs/
+npm-debug.log
+coverage/
+.idea/
+run/
+.DS_Store
+*.swp
+
