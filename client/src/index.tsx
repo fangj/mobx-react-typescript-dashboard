@@ -1,12 +1,13 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
+import "./antd_style.less";
+
 
 import {hashHistory, Route, Router,IndexRoute} from "react-router";
 import HomePage from "./routes/HomePage";
 import LoginPage from "./routes/LoginPage";
 import TodoList from "./routes/TodoList";
 import MainFrame from "./frame/MainFrame";
-import "./antd_style.less";
 
 const authentication = (nextState, replace) => {
     // console.log("authentication");
