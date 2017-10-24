@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {observer} from "mobx-react";
 
-import "./MainFrame.less";
+// import "./MainFrame.less";
 
 import {hashHistory} from 'react-router';
 import * as moment from "moment";
@@ -21,9 +21,11 @@ export default class MainFrame extends React.Component<any, any> {
             sidebarBgImg = '1',
             isShowSidebarBgImg = true,
             // Responsive Sidebar
-            siderRespons = document.body.clientWidth < 1201,
             menuResponsVisible = false;
         const sidebarFold=globalStore.sidebarFold;
+        const siderRespons=globalStore.siderRespons;
+        const menuResponsVisible=globalStore.menuResponsVisible;
+
         const menukey='dashboard';
         const siderbarProps = {
             sidebarFold,

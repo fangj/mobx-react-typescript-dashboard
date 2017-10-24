@@ -23,6 +23,7 @@ class Header extends React.Component {
 
       const sidebarFold=globalStore.sidebarFold;
       const onSwitchSidebar=globalStore.onSwitchSidebar;
+      const onSwitchMenuPopover=globalStore.onSwitchMenuPopover;
 
     const msgContent = (
       <div>
