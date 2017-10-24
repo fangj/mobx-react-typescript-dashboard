@@ -57,14 +57,29 @@ module.exports = {
                 })
             },
             {
-                test: /\.less$/,
+                test: /antd_style\.less$/,
+                use: ExtractTextPlugin.extract({
+                    fallback: 'style-loader',
+                    use: [
+                        {
+                            //antd.less的className 不进行修饰
+                            loader: 'typings-for-css-modules-loader?modules&importLoaders=1&localIdentName=[local]&namedExport&camelCase&less!less-loader'
+                        }
+                    ]
+                })
+            },
+            {
+                // test: /\.less$/,
+                test(filePath) { //修饰less但不修饰antd_style.less
+                    return /\.less$/.test(filePath) && !/\antd_style\.less$/.test(filePath);
+                },
                 use: ExtractTextPlugin.extract({
                     fallback: 'style-loader',
                     use: [
                         {
                             //.less的className 进行修饰
-                            // loader: 'typings-for-css-modules-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]&namedExport&camelCase&less!less-loader'
-                            loader: 'typings-for-css-modules-loader?modules&importLoaders=1&localIdentName=[local]&namedExport&camelCase&less!less-loader'
+                            loader: 'typings-for-css-modules-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]&namedExport&camelCase&less!less-loader'
+                            // loader: 'typings-for-css-modules-loader?modules&importLoaders=1&localIdentName=[local]&namedExport&camelCase&less!less-loader'
                         }
                     ]
                 })

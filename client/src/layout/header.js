@@ -75,7 +75,7 @@ class Header extends React.Component {
                   <div className={styles.btn}><Icon type='bars' /></div>
                 </Popover>
                 : <div className={styles.btn} onClick={onSwitchSidebar}>
-                  <Icon type={sidebarFold ? 'menu-unfold' : 'menu-fold'} />
+                  <Icon type={sidebarFold ? 'menu-unfold' : 'menu-fold'} style={{lineHeight:1.5}}/>
                 </div>
             }
             <ul className={styles['navbar-right']}>
