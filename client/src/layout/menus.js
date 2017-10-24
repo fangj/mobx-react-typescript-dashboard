@@ -1,16 +1,24 @@
 import * as React from 'react'
+import {observer} from "mobx-react";
+
 import { Menu, Icon } from 'antd'
 import { Link } from  "react-router";
 
 const SubMenu = Menu.SubMenu
 
+import {globalStore} from "../stores/GlobalStore";
+
+@observer
 class Menus extends React.Component {
 
 
   render () {
-    const { sidebarFold, onMenuClick, menukey } = this.props
+      // const { sidebarFold, onMenuClick, menukey } = this.props
+      const { sidebarFold } = this.props
+      // const sidebarFold=globalStore.;
+      const menukey=globalStore.menukey;
     return (
-      <Menu mode={sidebarFold ? 'vertical' : 'inline'} theme='light' onClick={onMenuClick} selectedKeys={Array.of(menukey)}>
+      <Menu mode={sidebarFold ? 'vertical' : 'inline'} theme='light' onClick={globalStore.onMenuClick} selectedKeys={Array.of(menukey)}>
         <Menu.Item key='dashboard'>
           <Link to='/dashboard'>
             <Icon type='appstore-o' />Dashboard

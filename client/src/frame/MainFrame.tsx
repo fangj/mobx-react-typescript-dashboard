@@ -1,29 +1,29 @@
 import * as React from 'react';
+import {observer} from "mobx-react";
 
 import "./MainFrame.less";
 
 import {hashHistory} from 'react-router';
 import * as moment from "moment";
-import TeacherMenu from './menu/TeacherMenu.jsx';
-import StudentMenu from './menu/StudentMenu.jsx';
-import {userStore} from "../stores/UserStore";
 import '../themes/skin.less'
 import * as classnames from 'classnames'
 import * as Layout from '../layout'
 const { Header, Sider, LayoutStyles } = Layout;
+import {globalStore} from "../stores/GlobalStore";
 
+@observer
 export default class MainFrame extends React.Component<any, any> {
 
     render() {
         const {children} = this.props;
-        const sidebarFold = false,
-            fullScreen = false,
+        const fullScreen = false,
             sidebarBgColor = 'red',
             sidebarBgImg = '1',
             isShowSidebarBgImg = true,
             // Responsive Sidebar
             siderRespons = document.body.clientWidth < 1201,
             menuResponsVisible = false;
+        const sidebarFold=globalStore.sidebarFold;
         const menukey='dashboard';
         const siderbarProps = {
             sidebarFold,
