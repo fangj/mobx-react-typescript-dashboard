@@ -55,9 +55,9 @@ class Header extends React.Component {
       <navbar-cmp>
         <nav className={classnames(styles.navbar, styles['navbar-transparent'], styles['navbar-absolute'])}>
           <div className={styles['navbar-container']}>
-            {/*{*/}
-              {/*// Responsive Sidebar*/}
-              {/*siderRespons*/}
+            {
+              // Responsive Sidebar
+              siderRespons
                 ? <Popover
                   placement='bottomLeft'
                   onVisibleChange={onSwitchMenuPopover}
@@ -70,7 +70,7 @@ class Header extends React.Component {
                 : <div className={styles.btn} onClick={onSwitchSidebar}>
                   <Icon type={sidebarFold ? 'menu-unfold' : 'menu-fold'} />
                 </div>
-            {/*}*/}
+            }
             <ul className={styles['navbar-right']}>
               <li>
                 <Input placeholder='Search' style={searchStyle} />

@@ -24,7 +24,7 @@ export default class MainFrame extends React.Component<any, any> {
             // Responsive Sidebar
             siderRespons = document.body.clientWidth < 1201,
             menuResponsVisible = false;
-        const menukey='';
+        const menukey='dashboard';
         const siderbarProps = {
             sidebarFold,
             menukey

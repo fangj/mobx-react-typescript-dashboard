@@ -6,6 +6,7 @@ import HomePage from "./routes/HomePage";
 import LoginPage from "./routes/LoginPage";
 import TodoList from "./routes/TodoList";
 import MainFrame from "./frame/MainFrame";
+import "./antd_style.less";
 
 const authentication = (nextState, replace) => {
     // console.log("authentication");

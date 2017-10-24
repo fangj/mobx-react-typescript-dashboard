@@ -1,5 +1,5 @@
 module.exports = {
   name: 'little a dashboard',
-  logo: '/logo.png',
+  logo: '/img/logo.png',
   api: '/'
 }
