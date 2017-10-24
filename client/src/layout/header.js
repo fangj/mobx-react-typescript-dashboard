@@ -3,15 +3,15 @@ import * as classnames from 'classnames'
 import { Icon, Popover, Badge, Avatar, Input } from 'antd'
 import * as Menus from './menus'
 import * as styles from './layout.less'
-import {globalStore} from "../stores/GlobalStore";
-import {observer} from "mobx-react";
+// import {globalStore} from "../stores/GlobalStore";
+// import {observer} from "mobx-react";
 
-@observer
+// @observer
 class Header extends React.Component {
   render () {
     const {
       fullScreen,
-      // sidebarFold,
+      sidebarFold,
       onLock,
       onFull,
       onExitFull,
@@ -20,10 +20,10 @@ class Header extends React.Component {
       siderRespons,
       menuResponsVisible,
       onSwitchMenuPopover } = this.props
-
-      const sidebarFold=globalStore.sidebarFold;
-      const onSwitchSidebar=globalStore.onSwitchSidebar;
-      const onSwitchMenuPopover=globalStore.onSwitchMenuPopover;
+      //
+      // const sidebarFold=globalStore.sidebarFold;
+      // const onSwitchSidebar=globalStore.onSwitchSidebar;
+      // const onSwitchMenuPopover=globalStore.onSwitchMenuPopover;
 
     const msgContent = (
       <div>

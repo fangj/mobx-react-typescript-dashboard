@@ -1,5 +1,5 @@
 module.exports = {
-  name: 'little a dashboard',
+  name: 'olab dashboard',
   logo: '/img/logo.png',
   api: '/'
 }

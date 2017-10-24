@@ -2,12 +2,17 @@
  * Created by FangJian on 2017/10/24.
  */
 import {computed, observable} from "mobx";
+import {hashHistory} from 'react-router';
 
 export default class GlobalStore {
     @observable menukey = "dashboard";
     @observable sidebarFold = false;
     @observable siderRespons=document.body.clientWidth < 1201;
     @observable menuResponsVisible=false;
+    @observable fullScreen = false,
+    @observable sidebarBgColor = 'red',
+    @observable sidebarBgImg = '1',
+    @observable isShowSidebarBgImg = true,
 
     onMenuClick=(menukey: string)=> {
         this.menukey=menukey.key;
@@ -19,10 +24,19 @@ export default class GlobalStore {
         // debugger;
         this.menuResponsVisible=!this.menuResponsVisible;
     }
+    lock=()=>{
+        hashHistory.push('/lock');
+    }
+    unlock=()=>{
+        hashHistory.push('/dashboard')
+    }
+    switchFullScreen=()=>{
+        this.fullScreen=!this.fullScreen;
+    }
 
 }
 
-export const globalStore=new GlobalStore;
+export const globalStore=new GlobalStore();
 
 //onresize
 //https://developer.mozilla.org/en-US/docs/Web/Events/resize

@@ -2,8 +2,6 @@ import * as React from 'react'
 import * as styles from './layout.less'
 import * as Menus from './menus'
 import * as config from '../utils/config'
-import {globalStore} from "../stores/GlobalStore";
-
 import { Layout,Icon }  from 'antd';
 const { Header, Footer, Sider } = Layout;
 class MySider extends React.Component {
@@ -14,17 +12,6 @@ class MySider extends React.Component {
         menukey,
       sidebarFold,
     }
-
-      // return (
-      // {/*<div>*/}
-      //   {/*<div className={styles.logo}>*/}
-      //     {/*<img alt={'logo'} src={config.logo} />*/}
-      //     {/*{sidebarFold ? <span /> : <span>{config.name}</span>}*/}
-      //   {/*</div>*/}
-      //   {/*<Menus {...menuProps} />*/}
-      // {/*</div>*/}
-
-    //)
 
       return (<Sider
           collapsible

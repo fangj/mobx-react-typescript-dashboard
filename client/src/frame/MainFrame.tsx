@@ -8,7 +8,8 @@ import * as moment from "moment";
 import '../themes/skin.less'
 import * as classnames from 'classnames'
 import * as Layout from '../layout'
-const { Header, Sider, LayoutStyles } = Layout;
+
+const {Header, Sider, LayoutStyles} = Layout;
 import {globalStore} from "../stores/GlobalStore";
 
 @observer
@@ -16,31 +17,30 @@ export default class MainFrame extends React.Component<any, any> {
 
     render() {
         const {children} = this.props;
-        const fullScreen = false,
-            sidebarBgColor = 'red',
-            sidebarBgImg = '1',
-            isShowSidebarBgImg = true,
-            // Responsive Sidebar
-            menuResponsVisible = false;
-        const sidebarFold=globalStore.sidebarFold;
-        const siderRespons=globalStore.siderRespons;
-        const menuResponsVisible=globalStore.menuResponsVisible;
 
-        const menukey='dashboard';
+        const menukey = globalStore.menukey;
+        const menuResponsVisible = globalStore.menuResponsVisible;
+        const fullScreen = globalStore.fullScreen;
+        const sidebarBgColor = globalStore.sidebarBgColor;
+        const sidebarBgImg = globalStore.sidebarBgImg;
+        const isShowSidebarBgImg = globalStore.isShowSidebarBgImg;
+        // Responsive Sidebar
+        const sidebarFold = globalStore.sidebarFold;
+        const siderRespons = globalStore.siderRespons;
+
         const siderbarProps = {
             sidebarFold,
             menukey
         }
-        const dispatch=()=>{};
         const headerProps = {
             fullScreen,
             sidebarFold,
             siderRespons,
             menuResponsVisible,
-            onLock () {
-                dispatch({ type: 'app/lock' })
+            onLock() {
+                globalStore.lock();
             },
-            onFull (element) {
+            onFull(element) {
                 if (element.requestFullscreen) {
                     element.requestFullscreen()
                 } else if (element.mozRequestFullScreen) {
@@ -50,9 +50,9 @@ export default class MainFrame extends React.Component<any, any> {
                 } else if (element.msRequestFullscreen) {
                     element.msRequestFullscreen()
                 }
-                dispatch({ type: 'app/switchFullScreen' })
+                globalStore.switchFullScreen();
             },
-            onExitFull () {
+            onExitFull() {
                 if (document.exitFullscreen) {
                     document.exitFullscreen()
                 } else if (document.mozCancelFullScreen) {
@@ -60,16 +60,16 @@ export default class MainFrame extends React.Component<any, any> {
                 } else if (document.webkitExitFullscreen) {
                     document.webkitExitFullscreen()
                 }
-                dispatch({ type: 'app/switchFullScreen' })
+                globalStore.switchFullScreen();
             },
-            onLogout () {
+            onLogout() {
                 hashHistory.push('/login')
             },
-            onSwitchSidebar () {
-                dispatch({ type: 'app/switchSidebar' })
+            onSwitchSidebar() {
+                globalStore.onSwitchSidebar();
             },
-            onSwitchMenuPopover () {
-                dispatch({ type: 'app/switchMenuPopver' })
+            onSwitchMenuPopover() {
+                globalStore.onSwitchMenuPopover();
             }
         }
         return (
