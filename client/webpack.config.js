@@ -19,6 +19,7 @@ module.exports = {
         'jquery': 'jQuery',
         'lodash': '_',
         'parse': 'Parse',
+        "prop-types":"PropTypes",
         'pubsub-js': 'PubSub',
         'react': 'React',
         'react-dom': 'ReactDOM',
@@ -69,7 +70,7 @@ module.exports = {
                 })
             },
             {
-                test: /\.(png|jpg|svg|gif)$/,
+                test: /\.(png|jpg|jpeg|svg|gif)$/,
                 use: "file-loader?name=[name].[ext]&publicPath=/build/&outputPath=img/"
             }
         ]

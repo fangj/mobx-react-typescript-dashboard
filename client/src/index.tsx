@@ -5,6 +5,7 @@ import "./antd_style.less";
 
 import {hashHistory, Route, Router,IndexRoute} from "react-router";
 import HomePage from "./routes/HomePage";
+import Dashboard from "./routes/Dashboard";
 import LoginPage from "./routes/LoginPage";
 import TodoList from "./routes/TodoList";
 import MainFrame from "./frame/MainFrame";
@@ -24,6 +25,8 @@ ReactDOM.render((
         <Route path="/" component={MainFrame} onEnter={authentication}  onChange={authentication}>
             <IndexRoute  component={HomePage}/>
             <Route path="todo" component={TodoList}/>
+            <Route path="dashboard" component={Dashboard}/>
+
             <Route path="*" component={HomePage}/>
         </Route>
     </Router>
