@@ -42,7 +42,7 @@ ReactDOM.render((
             <Route path="profile" component={Profile}/>
             <Route path="setting" component={Setting}/>
             <Route path="alert" component={Alert}/>
-            {/*<Route path="charts" component={Charts}/>*/}
+            <Route path="charts" component={Charts}/>
             {/*<Route path="editor" component={Editor}/>*/}
             {/*<Route path="grid" component={Grid}/>*/}
             {/*<Route path="map" component={Map}/>*/}

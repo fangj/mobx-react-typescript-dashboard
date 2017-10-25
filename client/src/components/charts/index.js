@@ -1,11 +1,10 @@
 import * as React from 'react';
 import { Row, Col, Card, message } from 'antd';
-import * as ReactEcharts from 'echarts-for-react';
+import {default as ReactEcharts} from 'echarts-for-react';
 import * as echarts from 'echarts';
 import * as classnames from 'classnames';
 import * as airportConfig from './airportConfig';
 import * as styles from './charts.less';
-
 require('echarts/map/js/china.js');
 
 class Charts extends React.Component {
@@ -27,7 +26,7 @@ class Charts extends React.Component {
     }
 
     const reStyle = {
-      width: '100%',
+      width: '400px',
       height: '220px'
     }
 
@@ -99,7 +98,7 @@ class Charts extends React.Component {
               </div>}>
               <ReactEcharts
                 option={airportConfig.getOption}
-                style={{height: '600px', width: '100%'}} />
+                style={{height: '600px', width: '600px'}} />
             </Card>
           </Col>
           <Col xs={24} sm={24} md={24} lg={12} xl={12}>
@@ -111,7 +110,7 @@ class Charts extends React.Component {
               </div>}>
               <ReactEcharts
                 option={options.gaugeoption}
-                style={{height: '600px', width: '100%'}} />
+                style={{height: '600px', width: '600px'}} />
             </Card>
           </Col>
         </Row>
