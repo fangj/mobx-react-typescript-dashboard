@@ -32,6 +32,7 @@ module.exports = {
         'mockjs': 'Mock',
         'mobx-react-devtools': 'mobxDevtools',
         'react-jsonschema-form':'JSONSchemaForm',
+        'react-bootstrap-table':'ReactBootstrapTable',
     },
     output: {
         path: path.join(__dirname, '..', 'server', 'public', 'build'),

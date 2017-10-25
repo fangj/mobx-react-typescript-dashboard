@@ -61,7 +61,12 @@ class Menus extends React.Component {
                     </Menu.Item>
                     <Menu.Item key='form'>
                         <Link to='/form' style={{color: '#999'}}>
-                            Form
+                            react-jsonschema-form
+                        </Link>
+                    </Menu.Item>
+                    <Menu.Item key='table2'>
+                        <Link to='/table2' style={{color: '#999'}}>
+                            react-bootstrap-table
                         </Link>
                     </Menu.Item>
                 </SubMenu>

@@ -20,6 +20,7 @@ import Editor from "./routes/Editor";
 import Grid from "./routes/Grid";
 import Map from "./routes/Map";
 import Table from "./routes/Table";
+import Table2 from "./routes/Table2";
 import SchemaForm from "./routes/SchemaForm";
 
 const authentication = (nextState, replace) => {
@@ -48,6 +49,7 @@ ReactDOM.render((
             <Route path="map" component={Map}/>
             <Route path="table" component={Table}/>
             <Route path="form" component={SchemaForm}/>
+            <Route path="table2" component={Table2}/>
             <Route path="*" component={Dashboard}/>
         </Route>
     </Router>
