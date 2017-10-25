@@ -13,6 +13,7 @@ import Dashboard from "./routes/Dashboard";
 import Profile from "./routes/Profile";
 import Setting from "./routes/Setting";
 import Acknowledge from "./routes/Acknowledge";
+import Lock from "./routes/Lock";
 
 const authentication = (nextState, replace) => {
     // console.log("authentication");
@@ -26,6 +27,8 @@ const authentication = (nextState, replace) => {
 ReactDOM.render((
     <Router history={hashHistory}>
         <Route path="/login" component={LoginPage}/>
+        <Route path="/lock" component={Lock}/>
+
         <Route path="/" component={MainFrame} onEnter={authentication}  onChange={authentication}>
             <IndexRoute  component={HomePage}/>
             <Route path="todo" component={TodoList}/>
