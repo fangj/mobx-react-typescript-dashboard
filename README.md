@@ -1,4 +1,8 @@
-# mobx-react-typescript-startkit
+# mobx-react-typescript-dashboard
+
+移植自 https://github.com/huzzbuzz/little-a-dashboard
+![截图](https://github.com/fangj/mobx-react-typescript-startkit/raw/master/doc/mobx_dashboard.png)
+
 
 客户端可使用`jsx`或`tsx`，服务端使用`eggjs`，内含`todolist`样例。  
 
