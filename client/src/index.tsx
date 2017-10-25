@@ -12,6 +12,7 @@ import MainFrame from "./frame/MainFrame";
 import Dashboard from "./routes/Dashboard";
 import Profile from "./routes/Profile";
 import Setting from "./routes/Setting";
+import Acknowledge from "./routes/Acknowledge";
 
 const authentication = (nextState, replace) => {
     // console.log("authentication");
@@ -31,6 +32,7 @@ ReactDOM.render((
             <Route path="dashboard" component={Dashboard}/>
             <Route path="profile" component={Profile}/>
             <Route path="setting" component={Setting}/>
+            <Route path="acknowledge" component={Acknowledge}/>
 
             <Route path="*" component={HomePage}/>
         </Route>
