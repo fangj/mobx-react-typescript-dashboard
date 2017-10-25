@@ -1,6 +1,6 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import "./antd_style.less";
+import "./antd.module.less";
 
 
 import {hashHistory, Route, Router,IndexRoute} from "react-router";

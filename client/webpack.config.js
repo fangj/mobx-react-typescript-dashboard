@@ -57,7 +57,7 @@ module.exports = {
                 })
             },
             {
-                test: /antd_style\.less$/,
+                test: /\.module\.less$/,
                 use: ExtractTextPlugin.extract({
                     fallback: 'style-loader',
                     use: [
@@ -71,7 +71,7 @@ module.exports = {
             {
                 // test: /\.less$/,
                 test(filePath) { //修饰less但不修饰antd_style.less
-                    return /\.less$/.test(filePath) && !/\antd_style\.less$/.test(filePath);
+                    return /\.less$/.test(filePath) && !/\.module\.less$/.test(filePath);
                 },
                 use: ExtractTextPlugin.extract({
                     fallback: 'style-loader',
