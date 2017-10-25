@@ -1,8 +1,8 @@
 import * as React from 'react'
 import { Col, Row } from 'antd'
-import * as GoogleMap from 'google-map-react'
+import {default as GoogleMap} from 'google-map-react'
 import * as styles from './map.less'
-
+debugger;
 const K_WIDTH = 40
 const K_HEIGHT = 40
 

@@ -44,8 +44,8 @@ ReactDOM.render((
             <Route path="alert" component={Alert}/>
             <Route path="charts" component={Charts}/>
             <Route path="editor" component={Editor}/>
-            {/*<Route path="grid" component={Grid}/>*/}
-            {/*<Route path="map" component={Map}/>*/}
+            <Route path="grid" component={Grid}/>
+            <Route path="map" component={Map}/>
             {/*<Route path="table" component={Table}/>*/}
             <Route path="*" component={HomePage}/>
         </Route>
