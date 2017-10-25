@@ -33,6 +33,15 @@ export default class GlobalStore {
     switchFullScreen=()=>{
         this.fullScreen=!this.fullScreen;
     }
+    switchSidebarBgColor=(color)=>{
+        this.sidebarBgColor=color;
+    }
+    switchSidebarBgImg=(img)=>{
+        this.sidebarBgImg=img;
+    }
+    switchIsShowSidebarBgImg=()=>{
+        this.isShowSidebarBgImg=!this.isShowSidebarBgImg;
+    }
 
 }
 

@@ -5,11 +5,13 @@ import "./antd.module.less";
 
 import {hashHistory, Route, Router,IndexRoute} from "react-router";
 import HomePage from "./routes/HomePage";
-import Dashboard from "./routes/Dashboard";
-import Profile from "./routes/Profile";
+
 import LoginPage from "./routes/LoginPage";
 import TodoList from "./routes/TodoList";
 import MainFrame from "./frame/MainFrame";
+import Dashboard from "./routes/Dashboard";
+import Profile from "./routes/Profile";
+import Setting from "./routes/Setting";
 
 const authentication = (nextState, replace) => {
     // console.log("authentication");
@@ -28,6 +30,7 @@ ReactDOM.render((
             <Route path="todo" component={TodoList}/>
             <Route path="dashboard" component={Dashboard}/>
             <Route path="profile" component={Profile}/>
+            <Route path="setting" component={Setting}/>
 
             <Route path="*" component={HomePage}/>
         </Route>
