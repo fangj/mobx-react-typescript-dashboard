@@ -21,6 +21,8 @@ module.exports = {
         'parse': 'Parse',
         "prop-types":"PropTypes",
         'pubsub-js': 'PubSub',
+        "quill":"Quill",
+        "react-quill":"ReactQuill",
         'react': 'React',
         'react-dom': 'ReactDOM',
         'react-router': 'ReactRouter',
