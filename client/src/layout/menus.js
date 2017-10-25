@@ -59,6 +59,11 @@ class Menus extends React.Component {
                             Table
                         </Link>
                     </Menu.Item>
+                    <Menu.Item key='form'>
+                        <Link to='/form' style={{color: '#999'}}>
+                            Form
+                        </Link>
+                    </Menu.Item>
                 </SubMenu>
                 <Menu.Item key='setting'>
                     <Link to='/setting'>

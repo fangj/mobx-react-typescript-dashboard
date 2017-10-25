@@ -31,6 +31,7 @@ module.exports = {
         'mobx-react': 'mobxReact',
         'mockjs': 'Mock',
         'mobx-react-devtools': 'mobxDevtools',
+        'react-jsonschema-form':'JSONSchemaForm',
     },
     output: {
         path: path.join(__dirname, '..', 'server', 'public', 'build'),
