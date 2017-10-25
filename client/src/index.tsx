@@ -32,12 +32,11 @@ const authentication = (nextState, replace) => {
 
 ReactDOM.render((
     <Router history={hashHistory}>
+        <Route path="/todo" component={TodoList}/>
         <Route path="/login" component={LoginPage}/>
         <Route path="/lock" component={Lock}/>
-
         <Route path="/" component={MainFrame} onEnter={authentication}  onChange={authentication}>
             <IndexRoute  component={HomePage}/>
-            <Route path="todo" component={TodoList}/>
             <Route path="dashboard" component={Dashboard}/>
             <Route path="profile" component={Profile}/>
             <Route path="setting" component={Setting}/>
@@ -46,8 +45,8 @@ ReactDOM.render((
             <Route path="editor" component={Editor}/>
             <Route path="grid" component={Grid}/>
             <Route path="map" component={Map}/>
-            {/*<Route path="table" component={Table}/>*/}
-            <Route path="*" component={HomePage}/>
+            <Route path="table" component={Table}/>
+            <Route path="*" component={Dashboard}/>
         </Route>
     </Router>
 ), document.getElementById('root'));
