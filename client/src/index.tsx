@@ -14,6 +14,12 @@ import Profile from "./routes/Profile";
 import Setting from "./routes/Setting";
 import Acknowledge from "./routes/Acknowledge";
 import Lock from "./routes/Lock";
+import Alert from "./routes/Alert";
+import Charts from "./routes/Charts";
+import Editor from "./routes/Editor";
+import Grid from "./routes/Grid";
+import Map from "./routes/Map";
+import Table from "./routes/Table";
 
 const authentication = (nextState, replace) => {
     // console.log("authentication");
@@ -35,8 +41,12 @@ ReactDOM.render((
             <Route path="dashboard" component={Dashboard}/>
             <Route path="profile" component={Profile}/>
             <Route path="setting" component={Setting}/>
-            <Route path="acknowledge" component={Acknowledge}/>
-
+            <Route path="alert" component={Alert}/>
+            {/*<Route path="charts" component={Charts}/>*/}
+            {/*<Route path="editor" component={Editor}/>*/}
+            {/*<Route path="grid" component={Grid}/>*/}
+            {/*<Route path="map" component={Map}/>*/}
+            {/*<Route path="table" component={Table}/>*/}
             <Route path="*" component={HomePage}/>
         </Route>
     </Router>

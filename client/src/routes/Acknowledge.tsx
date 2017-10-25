@@ -3,7 +3,7 @@
  */
 
 import * as React from "react";
-// require ("./LoginPage.less");
+// require ("./Acknowledge.less");
 import Acknowledge from "../components/acknowledge/index.js";
 
 export default () => {
