@@ -1,6 +1,6 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import "./antd.module.less";
+// import "./antd.module.less"; //用antd.custom.min.css替代
 
 
 import {hashHistory, Route, Router,IndexRoute} from "react-router";

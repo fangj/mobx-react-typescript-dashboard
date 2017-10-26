@@ -1,2 +1,9 @@
-@import "~antd/dist/antd.less";   // 引入官方提供的 less 样式入口文件
+@import "../node_modules/antd/dist/antd.less";   // 引入官方提供的 less 样式入口文件
 @import "./themes/var.less";
+
+/*
+npm i less -g
+npm install -g less-plugin-clean-css
+lessc antd.module.less --clean-css="--s1 --advanced --compatibility=ie8" > antd.custom.min.css
+
+ */
