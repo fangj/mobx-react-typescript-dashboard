@@ -55,8 +55,8 @@ export default class MainFrame extends React.Component<any, any> {
             onExitFull() {
                 if (document.exitFullscreen) {
                     document.exitFullscreen()
-                } else if (document.mozCancelFullScreen) {
-                    document.mozCancelFullScreen()
+                } else if (document["mozCancelFullScreen"]) {
+                    document["mozCancelFullScreen"]()
                 } else if (document.webkitExitFullscreen) {
                     document.webkitExitFullscreen()
                 }
