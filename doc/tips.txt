@@ -1,0 +1,6 @@
+压缩JS
+
+安装：
+npm install uglify-js -g
+压缩
+uglifyjs file.js -m -o file.min.js
