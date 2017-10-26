@@ -5,18 +5,19 @@ import {computed, observable} from "mobx";
 import {hashHistory} from 'react-router';
 
 import * as demoMenuData from "./menu/demo.js";
+import {ClickParam} from "antd/es/menu";
 
 export default class GlobalStore {
     @observable menukey = "dashboard";
     @observable sidebarFold = false;
     @observable siderRespons=document.body.clientWidth < 1201;
     @observable menuResponsVisible=false;
-    @observable fullScreen = false,
-    @observable sidebarBgColor = 'red',
-    @observable sidebarBgImg = '1',
-    @observable isShowSidebarBgImg = true,
+    @observable fullScreen = false;
+    @observable sidebarBgColor = 'red';
+    @observable sidebarBgImg = '1';
+    @observable isShowSidebarBgImg = true;
 
-    onMenuClick=(menukey: string)=> {
+    onMenuClick=(menukey: ClickParam)=> {
         this.menukey=menukey.key;
     }
     onSwitchSidebar=()=>{
@@ -70,7 +71,7 @@ export const globalStore=new GlobalStore();
     };
 
     /* init - you can init any event */
-    throttle("resize", "optimizedResize");
+    throttle("resize", "optimizedResize",window);
 })();
 
 // handle event
