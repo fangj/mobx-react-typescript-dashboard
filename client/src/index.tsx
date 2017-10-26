@@ -38,7 +38,7 @@ ReactDOM.render((
         <Route path="/login" component={LoginPage}/>
         <Route path="/lock" component={Lock}/>
         <Route path="/" component={MainFrame} onEnter={authentication}  onChange={authentication}>
-            <IndexRoute  component={HomePage}/>
+            <IndexRoute  component={Dashboard}/>
             <Route path="dashboard" component={Dashboard}/>
             <Route path="profile" component={Profile}/>
             <Route path="setting" component={Setting}/>
