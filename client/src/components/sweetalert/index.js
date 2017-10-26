@@ -2,7 +2,7 @@ import * as React from 'react'
 import { Row, Col, Card, Button } from 'antd'
 import * as swal from 'sweetalert2'
 import * as styles from './alert.less'
-require('sweetalert2/dist/sweetalert2.css')
+// require('sweetalert2/dist/sweetalert2.css')
 
 class SweetAlert extends React.Component {
 

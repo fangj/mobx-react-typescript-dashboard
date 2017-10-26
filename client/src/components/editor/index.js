@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as classnames from 'classnames';
 import { Row, Col, Card } from 'antd';
 import * as ReactQuill from 'react-quill';
-require('react-quill/dist/quill.snow.css');
+// require('react-quill/dist/quill.snow.css');
 import * as styles from './editor.less';
 
 class Editor extends React.Component {

@@ -26,6 +26,7 @@ module.exports = {
         'react': 'React',
         'react-dom': 'ReactDOM',
         'react-router': 'ReactRouter',
+        'sweetalert2':'swal',
         'toastr':'toastr',
         'mobx': 'mobx',
         'mobx-react': 'mobxReact',
