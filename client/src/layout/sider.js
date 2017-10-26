@@ -4,13 +4,20 @@ import * as Menus from './menus'
 import * as config from '../utils/config'
 import { Layout,Icon }  from 'antd';
 const { Header, Footer, Sider } = Layout;
+import DataMenu from "./DataMenu";
+
+import {globalStore} from "../stores/GlobalStore";
+
 class MySider extends React.Component {
   render () {
-    const { sidebarFold, menukey } = this.props
-
+    const { sidebarFold, menukey } = this.props;
+    const onMenuClick = globalStore.onMenuClick;
+    const menuData=globalStore.menuData;
     const menuProps = {
         menukey,
-      sidebarFold,
+        sidebarFold,
+        onMenuClick,
+        data:menuData
     }
 
       return (<Sider
@@ -25,7 +32,8 @@ class MySider extends React.Component {
              <img alt={'logo'} src={config.logo} />
              {sidebarFold ? <span /> : <span>{config.name}</span>}
            </div>
-          <Menus {...menuProps} />
+          {/*<Menus {...menuProps} />*/}
+          <DataMenu {...menuProps} />
       </Sider>)
   }
 }
