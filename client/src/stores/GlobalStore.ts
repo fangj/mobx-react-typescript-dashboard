@@ -53,7 +53,7 @@ export default class GlobalStore {
     }
 
     login=({username,password})=>{
-        console.log("login",username,password);
+        // console.log("login",username,password);
         //清除用户状态
         this.logout();
         //演示用户设置为登陆状态
@@ -150,6 +150,6 @@ export const globalStore=new GlobalStore();
 
 // handle event
 window.addEventListener("optimizedResize", function() {
-    console.log("Resource conscious resize callback!");
+    // console.log("Resource conscious resize callback!");
     globalStore.siderRespons=document.body.clientWidth < 1201;
 });
