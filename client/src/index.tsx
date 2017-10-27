@@ -22,13 +22,14 @@ import Map from "./routes/Map";
 import Table from "./routes/Table";
 import Table2 from "./routes/Table2";
 import SchemaForm from "./routes/SchemaForm";
+import {globalStore} from "./stores/GlobalStore";
 
 const authentication = (nextState, replace) => {
     // console.log("authentication");
     //如果没有登陆就跳转到登录页
-    // if(!Parse.User.current()){
-    //     replace('/login')
-    // }
+    if(!globalStore.isLogin){
+        replace('/login')
+    }
 };
 
 

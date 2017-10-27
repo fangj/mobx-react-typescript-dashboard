@@ -4,10 +4,13 @@ import * as Menus from './menus'
 import * as config from '../utils/config'
 import { Layout,Icon }  from 'antd';
 const { Header, Footer, Sider } = Layout;
+import {observer} from "mobx-react";
+
 import DataMenu from "./DataMenu";
 
 import {globalStore} from "../stores/GlobalStore";
 
+@observer
 class MySider extends React.Component {
   render () {
     const { sidebarFold, menukey } = this.props;

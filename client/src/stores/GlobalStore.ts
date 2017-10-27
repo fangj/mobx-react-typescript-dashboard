@@ -3,9 +3,13 @@
  */
 import {computed, observable} from "mobx";
 import {hashHistory} from 'react-router';
-
-import * as demoMenuData from "./menu/demo.js";
+import * as Parse from "parse";
 import {ClickParam} from "antd/es/menu";
+
+import * as demoMenu from "./menu/demo.js";
+import * as adminMenu from "./menu/admin.js";
+import * as studentMenu from "./menu/student.js";
+import * as teacherMenu from "./menu/teacher.js";
 
 export default class GlobalStore {
     @observable menukey = "dashboard";
@@ -16,38 +20,108 @@ export default class GlobalStore {
     @observable sidebarBgColor = 'red';
     @observable sidebarBgImg = '1';
     @observable isShowSidebarBgImg = true;
+    //login
+    @observable loginLoading = false;
+    @observable demo_isLogin=false;//演示是否登陆
+    @observable demo_isAdmin=false;//演示管理员身份
+    @observable demo_isTeacher=false;//演示教师身份
+    @observable demo_isStudent=false;//演示学生身份
+
+    @computed get isLogin(){
+        const parse_isLogin=!!Parse.User.current();//parse登陆
+        return this.demo_isLogin||parse_isLogin;
+    }
+
+    @computed get isAdmin(){
+        return this.demo_isAdmin;
+    }
+
+    @computed get isTeacher(){
+        return this.demo_isTeacher;
+    }
+
+    @computed get isStudent(){
+        return this.demo_isStudent;
+    }
+
+    showLoginLoading() {
+        this.loginLoading=true;
+    }
+
+    hideLoginLoading(){
+        this.loginLoading=false;
+    }
+
+    login=({username,password})=>{
+        console.log("login",username,password);
+        //清除用户状态
+        this.logout();
+        //演示用户设置为登陆状态
+        const demo_users = ["demo", "admin", "teacher", "student"];
+        if(demo_users.indexOf(username)>=0){
+            this.demo_isLogin=true;
+        }
+        //演示用户设置角色
+        switch (username){
+            case "admin":  {this.demo_isAdmin=true;  break;}
+            case "teacher":{this.demo_isTeacher=true;break;}
+            case "student":{this.demo_isStudent=true;break;}
+        }
+        //登陆后跳转到主页面
+        if(this.isLogin){
+            hashHistory.push('/dashboard');
+        }
+        //关闭loading圈圈
+        this.hideLoginLoading();
+    };
+
+    logout(){
+        this.demo_isLogin=false;
+        this.demo_isAdmin=false;
+        this.demo_isTeacher=false;
+        this.demo_isStudent=false;
+        Parse.User.logOut();
+    }
 
     onMenuClick=(menukey: ClickParam)=> {
         this.menukey=menukey.key;
-    }
+    };
     onSwitchSidebar=()=>{
         this.sidebarFold=!this.sidebarFold;
-    }
+    };
     onSwitchMenuPopover=()=>{
-        // debugger;
         this.menuResponsVisible=!this.menuResponsVisible;
-    }
+    };
     lock=()=>{
         hashHistory.push('/lock');
-    }
+    };
     unlock=()=>{
         hashHistory.push('/dashboard')
-    }
+    };
     switchFullScreen=()=>{
         this.fullScreen=!this.fullScreen;
-    }
+    };
     switchSidebarBgColor=(color)=>{
         this.sidebarBgColor=color;
-    }
+    };
     switchSidebarBgImg=(img)=>{
         this.sidebarBgImg=img;
-    }
+    };
     switchIsShowSidebarBgImg=()=>{
         this.isShowSidebarBgImg=!this.isShowSidebarBgImg;
-    }
+    };
 
     @computed get menuData(){
-        return demoMenuData;
+        if(this.isAdmin){
+            return adminMenu;
+        }
+        if(this.isTeacher){
+            return teacherMenu;
+        }
+        if(this.isStudent){
+            return studentMenu;
+        }
+        return demoMenu;
     }
 }
 

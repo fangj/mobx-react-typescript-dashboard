@@ -4,9 +4,9 @@ import { Button, Row, Form, Input } from 'antd'
 import * as config  from '../../utils/config'
 import * as styles from './login.less'
 import {observer} from "mobx-react";
-import {loginStore} from "../../stores/LoginStore";
+import {globalStore} from "../../stores/GlobalStore";
 
-const FormItem = Form.Item
+const FormItem = Form.Item;
 
 const Login = ({
   form: {
@@ -14,19 +14,15 @@ const Login = ({
     validateFieldsAndScroll
   }
 }) => {
-  const { loginLoading } = loginStore
+  const { loginLoading } = globalStore;
 
   function handleOk () {
     validateFieldsAndScroll((errors, values) => {
-
       if (errors) {
         return
       }
-      loginStore.showLoginLoading();
-      // wait for 1.5 seconds on purpose
-      setTimeout(() => {
-          loginStore.login(values)
-      }, 1500)
+      globalStore.showLoginLoading();
+      globalStore.login(values)
     })
   }
 
@@ -61,7 +57,7 @@ const Login = ({
             <Button type='dashed' ghost size='large' onClick={handleOk} loading={loginLoading}>
               SIGN IN
             </Button>
-            <p><span>any username or password</span></p>
+            <p><span> username:demo & any password</span></p>
           </Row>
         </form>
       </div>
