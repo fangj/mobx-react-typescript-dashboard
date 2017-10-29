@@ -1,5 +1,5 @@
 module.exports = {
-  name: 'olab dashboard',
+  name: '东南大学 远程实验',
   logo: '/img/logo.png',
   api: '/'
 }

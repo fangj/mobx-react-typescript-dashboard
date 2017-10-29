@@ -9,8 +9,7 @@ import HomePage from "./routes/HomePage";
 import LoginPage from "./routes/LoginPage";
 import TodoList from "./routes/TodoList";
 import MainFrame from "./frame/MainFrame";
-import Dashboard from "./routes/Dashboard";
-import Profile from "./routes/Profile";
+// import Dashboard from "./routes/Dashboard";
 import Setting from "./routes/Setting";
 import Acknowledge from "./routes/Acknowledge";
 import Lock from "./routes/Lock";
@@ -22,6 +21,10 @@ import Map from "./routes/Map";
 import Table from "./routes/Table";
 import Table2 from "./routes/Table2";
 import SchemaForm from "./routes/SchemaForm";
+
+import Booking from "./routes/Booking";
+import Doing from "./routes/Doing";
+
 import {globalStore} from "./stores/GlobalStore";
 
 const authentication = (nextState, replace) => {
@@ -35,23 +38,25 @@ const authentication = (nextState, replace) => {
 
 ReactDOM.render((
     <Router history={hashHistory}>
-        <Route path="/todo" component={TodoList}/>
+        {/*<Route path="/todo" component={TodoList}/>*/}
         <Route path="/login" component={LoginPage}/>
         <Route path="/lock" component={Lock}/>
         <Route path="/" component={MainFrame} onEnter={authentication}  onChange={authentication}>
-            <IndexRoute  component={Dashboard}/>
-            <Route path="dashboard" component={Dashboard}/>
-            <Route path="profile" component={Profile}/>
-            <Route path="setting" component={Setting}/>
-            <Route path="alert" component={Alert}/>
-            <Route path="charts" component={Charts}/>
-            <Route path="editor" component={Editor}/>
-            <Route path="grid" component={Grid}/>
-            <Route path="map" component={Map}/>
-            <Route path="table" component={Table}/>
-            <Route path="form" component={SchemaForm}/>
-            <Route path="table2" component={Table2}/>
-            <Route path="*" component={Dashboard}/>
+            <IndexRoute  component={Booking}/>
+            {/*<Route path="dashboard" component={Dashboard}/>*/}
+            {/*<Route path="profile" component={Profile}/>*/}
+            {/*<Route path="setting" component={Setting}/>*/}
+            {/*<Route path="alert" component={Alert}/>*/}
+            {/*<Route path="charts" component={Charts}/>*/}
+            {/*<Route path="editor" component={Editor}/>*/}
+            {/*<Route path="grid" component={Grid}/>*/}
+            {/*<Route path="map" component={Map}/>*/}
+            {/*<Route path="table" component={Table}/>*/}
+            {/*<Route path="form" component={SchemaForm}/>*/}
+            {/*<Route path="table2" component={Table2}/>*/}
+            <Route path="booking" component={Booking}/>
+            <Route path="doing" component={Doing}/>
+            <Route path="*" component={Booking}/>
         </Route>
     </Router>
 ), document.getElementById('root'));

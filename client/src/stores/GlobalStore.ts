@@ -5,11 +5,18 @@ import {computed, observable} from "mobx";
 import {hashHistory} from 'react-router';
 import * as Parse from "parse";
 import {ClickParam} from "antd/es/menu";
+import { Button, notification } from 'antd';
 
 import * as demoMenu from "./menu/demo.js";
 import * as adminMenu from "./menu/admin.js";
 import * as studentMenu from "./menu/student.js";
 import * as teacherMenu from "./menu/teacher.js";
+
+function p2p<T>(p:Parse.IPromise<T>):Promise<T>{
+    return new Promise((resolve, reject) => {
+        return p.then(resolve, reject);
+    });
+}
 
 export default class GlobalStore {
     @observable menukey = "dashboard";
@@ -41,7 +48,13 @@ export default class GlobalStore {
     }
 
     @computed get isStudent(){
-        return this.demo_isStudent;
+        if(this.demo_isStudent){
+            return this.demo_isStudent;
+        }
+        if(Parse.User.current()){
+            return !Parse.User.current().get("isTeacher");
+        }
+        return false;
     }
 
     showLoginLoading() {
@@ -66,6 +79,16 @@ export default class GlobalStore {
             case "admin":  {this.demo_isAdmin=true;  break;}
             case "teacher":{this.demo_isTeacher=true;break;}
             case "student":{this.demo_isStudent=true;break;}
+            default:{
+                //登陆到parse数据库
+                p2p(Parse.User.logIn(username,password))
+                    .then(parseUser=>{
+                    hashHistory.push('/dashboard');
+                }).catch((error)=>{
+                    debugger;
+                    notification.warn({message:"登录失败",description:error.message})
+                })
+            }
         }
         //登陆后跳转到主页面
         if(this.isLogin){

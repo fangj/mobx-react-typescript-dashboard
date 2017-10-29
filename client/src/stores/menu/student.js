@@ -3,10 +3,16 @@
  */
 const menuData= [
     {
-        "key": "student",
-        "icon": "appstore-o",
-        "title": "Student",
-        "url": "/student"
+        "key": "booking",
+        "icon": "calendar",
+        "title": "预约",
+        "url": "/booking"
+    },
+    {
+        "key": "doing",
+        "icon": "dot-chart",
+        "title": "实验",
+        "url": "/doing"
     }
 
 ];

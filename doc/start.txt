@@ -1,0 +1,28 @@
+cd client
+webpack -w
+
+cd server/dist
+npm run dev
+
+启动parse
+parse-server --appId APPLICATION_ID --masterKey MASTER_KEY --databaseURI mongodb://localhost/test
+
+启动dashboard
+parse-dashboard --appId APPLICATION_ID  --masterKey MASTER_KEY  --serverURL "http://localhost:1337/parse" --appName app --allowInsecureHTTP
+
+
+用PM2启动应用
+https://eggjs.org/zh-cn/faq.html
+
+首先，在项目根目录定义启动文件：
+
+// server.js
+const egg = require('egg');
+const workers = Number(process.argv[2] || require('os').cpus().length);
+egg.startCluster({
+  workers,
+  baseDir: __dirname,
+});
+这样，我们就可以通过 PM2 进行启动了：
+
+pm2 start server.js
