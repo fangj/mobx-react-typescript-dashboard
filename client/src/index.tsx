@@ -34,14 +34,22 @@ const authentication = (nextState, replace) => {
         replace('/login')
     }
 };
+const onRouteChange = (nextState, replace) => {
+    authentication(nextState,replace);
+    const routes=nextState.routes;
+    if(routes&&routes.length>0){
+        const last_path=routes[routes.length-1].path;
+        globalStore.menukey=last_path;
+    }
 
+};
 
 ReactDOM.render((
     <Router history={hashHistory}>
         {/*<Route path="/todo" component={TodoList}/>*/}
         <Route path="/login" component={LoginPage}/>
         <Route path="/lock" component={Lock}/>
-        <Route path="/" component={MainFrame} onEnter={authentication}  onChange={authentication}>
+        <Route path="/" component={MainFrame} onEnter={onRouteChange}  onChange={onRouteChange}>
             <IndexRoute  component={Booking}/>
             {/*<Route path="dashboard" component={Dashboard}/>*/}
             {/*<Route path="profile" component={Profile}/>*/}

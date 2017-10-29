@@ -19,7 +19,7 @@ function p2p<T>(p:Parse.IPromise<T>):Promise<T>{
 }
 
 export default class GlobalStore {
-    @observable menukey = "dashboard";
+    @observable menukey = "";
     @observable sidebarFold = false;
     @observable siderRespons=document.body.clientWidth < 1201;
     @observable menuResponsVisible=false;

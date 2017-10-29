@@ -3,23 +3,14 @@
  */
 
 import * as React from "react";
-import {observer} from "mobx-react";
+// require ("./SchemaForm.less");
+import Booking from "../components/booking/Booking";
+import BookingStore from "../stores/BookingStore";
 
-//import * as styles from './Booking.less';
+const store=new BookingStore();
 
-interface IBooking {
-    // store: Store
-}
-
-@observer
-export default class Booking extends React.Component<IBooking, {}> {
-
-    //  static defaultProps: IBooking = {
-    // store: new Store()
-    //  };
-
-    render() {
-        // const store = this.props.store;
-        return (<div>Booking</div>)
-    }
+export default () => {
+    return (<div >
+        <Booking store={store}/>
+    </div>)
 }
