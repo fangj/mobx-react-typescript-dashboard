@@ -1,0 +1,4 @@
+/*保留高度以容纳Event*/
+.rbc-timeslot-group{
+    min-height: 80px;
+}

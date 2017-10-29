@@ -8,7 +8,8 @@ import { Modal, Button } from 'antd';
 import BookingStore from "../../stores/BookingStore";
 import {default as BigCalendar} from 'react-big-calendar';
 import * as moment from 'moment';
-import {default as events} from "./demo_events.js";
+import {toJS} from "mobx";
+// import {default as events} from "./demo_events.js";
 require("react-big-calendar/lib/css/react-big-calendar.css");
 moment.locale("zh-cn");
 BigCalendar.setLocalizer(
@@ -16,8 +17,7 @@ BigCalendar.setLocalizer(
 );
 
 
-
-//import * as styles from './Booking1.less';
+require('./Booking1.css');
 
 interface IBooking1 {
     type:string,
@@ -33,7 +33,7 @@ export default class Booking1 extends React.Component<IBooking1, {}> {
 
     render() {
         const store = this.props.store;
-        const type = this.props.type;
+        const events=toJS(store.events);
         return (<div>
             <BigCalendar
                 selectable
@@ -42,18 +42,16 @@ export default class Booking1 extends React.Component<IBooking1, {}> {
                 timeslots={4}
                 defaultView='week'
                 defaultDate={new Date(2015, 3, 12)}
-                onSelectEvent={event => this.showConfirm(event.title)}
-                onSelectSlot={(slotInfo) => alert(
-                    `selected slot: \n\nstart ${slotInfo.start.toLocaleString()} ` +
-                    `\nend: ${slotInfo.end.toLocaleString()}`
-                )}
+                onSelectEvent={this.showConfirm}
+                onSelectSlot={this.onBooking}
             />
         </div>)
     }
-    showConfirm=(title)=>{
+    showConfirm=(event)=>{
+        //点击已预约事件，是否删除
         Modal.confirm({
             title: 'Do you Want to delete these items?',
-            content: title,
+            content: event.title,
             onOk() {
                 console.log('OK');
             },
@@ -61,5 +59,13 @@ export default class Booking1 extends React.Component<IBooking1, {}> {
                 console.log('Cancel');
             },
         });
+    };
+    onBooking=(slotInfo)=>{
+        //预定
+        console.log(slotInfo)
+        const store = this.props.store;
+        const type = this.props.type;
+        store.book(type,slotInfo.start,slotInfo.end);
     }
+
 }
