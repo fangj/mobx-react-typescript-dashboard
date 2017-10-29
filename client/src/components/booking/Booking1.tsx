@@ -41,19 +41,24 @@ export default class Booking1 extends React.Component<IBooking1, {}> {
                 step={15}
                 timeslots={4}
                 defaultView='week'
-                defaultDate={new Date(2015, 3, 12)}
+                defaultDate={new Date()}
                 onSelectEvent={this.showConfirm}
                 onSelectSlot={this.onBooking}
+                min={new Date(2000, 1, 1,7,0,0)}
+                max={new Date(2000, 1, 1,21,0,0)}
             />
         </div>)
     }
     showConfirm=(event)=>{
         //点击已预约事件，是否删除
+        console.log(event)
+        const store = this.props.store;
         Modal.confirm({
-            title: 'Do you Want to delete these items?',
+            title: '是否删除这次预约?',
             content: event.title,
             onOk() {
                 console.log('OK');
+                store.remove(event)
             },
             onCancel() {
                 console.log('Cancel');
@@ -62,7 +67,7 @@ export default class Booking1 extends React.Component<IBooking1, {}> {
     };
     onBooking=(slotInfo)=>{
         //预定
-        console.log(slotInfo)
+        console.log(slotInfo);
         const store = this.props.store;
         const type = this.props.type;
         store.book(type,slotInfo.start,slotInfo.end);
