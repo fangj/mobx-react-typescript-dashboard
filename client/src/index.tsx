@@ -13,7 +13,7 @@ import Dashboard from "./routes/Dashboard";
 import Setting from "./routes/Setting";
 import Acknowledge from "./routes/Acknowledge";
 import Lock from "./routes/Lock";
-import Doing from "./routes/Doing";
+import Profile from "./routes/Profile";
 import Alert from "./routes/Alert";
 import Charts from "./routes/Charts";
 import Editor from "./routes/Editor";
@@ -23,8 +23,6 @@ import Table from "./routes/Table";
 import Table2 from "./routes/Table2";
 import SchemaForm from "./routes/SchemaForm";
 
-import Booking from "./routes/Booking";
-import Events from "./routes/Events";
 
 import {globalStore} from "./stores/GlobalStore";
 
@@ -51,22 +49,19 @@ ReactDOM.render((
         <Route path="/login" component={LoginPage}/>
         <Route path="/lock" component={Lock}/>
         <Route path="/" component={MainFrame} onEnter={onRouteChange}  onChange={onRouteChange}>
-            <IndexRoute  component={Booking}/>
+            <IndexRoute  component={Dashboard}/>
             <Route path="dashboard" component={Dashboard}/>
-            {/*<Route path="profile" component={Profile}/>*/}
-            {/*<Route path="setting" component={Setting}/>*/}
-            {/*<Route path="alert" component={Alert}/>*/}
-            {/*<Route path="charts" component={Charts}/>*/}
-            {/*<Route path="editor" component={Editor}/>*/}
-            {/*<Route path="grid" component={Grid}/>*/}
-            {/*<Route path="map" component={Map}/>*/}
-            {/*<Route path="table" component={Table}/>*/}
-            {/*<Route path="form" component={SchemaForm}/>*/}
-            {/*<Route path="table2" component={Table2}/>*/}
-            <Route path="booking" component={Booking}/>
-            <Route path="events" component={Events}/>
-            <Route path="do/:type" component={Doing}/>
-            <Route path="*" component={Booking}/>
+            <Route path="profile" component={Profile}/>
+            <Route path="setting" component={Setting}/>
+            <Route path="alert" component={Alert}/>
+            <Route path="charts" component={Charts}/>
+            <Route path="editor" component={Editor}/>
+            <Route path="grid" component={Grid}/>
+            <Route path="map" component={Map}/>
+            <Route path="table" component={Table}/>
+            <Route path="acknowledge" component={Acknowledge}/>
+            <Route path="form" component={SchemaForm}/>
+            <Route path="table2" component={Table2}/>
         </Route>
     </Router>
 ), document.getElementById('root'));
