@@ -4,12 +4,12 @@
 
 import * as React from "react";
 // require ("./SchemaForm.less");
-import Doing from "../components/booking/Doing";
+import Events from "../components/booking/Events";
 import {bookingStore} from "../stores/BookingStore";
 
 
 export default () => {
     return (<div >
-        <Doing store={bookingStore}/>
+        <Events store={bookingStore}/>
     </div>)
 }

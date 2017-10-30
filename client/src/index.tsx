@@ -23,7 +23,7 @@ import Table2 from "./routes/Table2";
 import SchemaForm from "./routes/SchemaForm";
 
 import Booking from "./routes/Booking";
-import Doing from "./routes/Doing";
+import Events from "./routes/Events";
 
 import {globalStore} from "./stores/GlobalStore";
 
@@ -63,7 +63,7 @@ ReactDOM.render((
             {/*<Route path="form" component={SchemaForm}/>*/}
             {/*<Route path="table2" component={Table2}/>*/}
             <Route path="booking" component={Booking}/>
-            <Route path="doing" component={Doing}/>
+            <Route path="events" component={Events}/>
             <Route path="*" component={Booking}/>
         </Route>
     </Router>

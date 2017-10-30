@@ -9,10 +9,10 @@ const menuData= [
         "url": "/booking"
     },
     {
-        "key": "doing",
+        "key": "events",
         "icon": "dot-chart",
         "title": "实验",
-        "url": "/doing"
+        "url": "/events"
     }
 
 ];
