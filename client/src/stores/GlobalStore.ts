@@ -33,6 +33,10 @@ export default class GlobalStore {
     @observable demo_isAdmin=false;//演示管理员身份
     @observable demo_isTeacher=false;//演示教师身份
     @observable demo_isStudent=false;//演示学生身份
+    @observable msgs=[
+        "先预约后实验",
+        "Another"
+    ];
 
     @computed get isLogin(){
         const parse_isLogin=!!Parse.User.current();//parse登陆

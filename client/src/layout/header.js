@@ -21,17 +21,17 @@ class Header extends React.Component {
       onSwitchSidebar,
       siderRespons,
       menuResponsVisible,
-      onSwitchMenuPopover } = this.props
+      onSwitchMenuPopover
+      } = this.props;
       //
       // const sidebarFold=globalStore.sidebarFold;
       // const onSwitchSidebar=globalStore.onSwitchSidebar;
       // const onSwitchMenuPopover=globalStore.onSwitchMenuPopover;
 
+      const msgs=globalStore.msgs;
     const msgContent = (
       <div>
-        <p><a>Mike responded to your email</a></p>
-        <p><a>You have 5 new tasks</a></p>
-        <p><a>Another</a></p>
+          {msgs.map((msg,idx)=><p key={idx}><a>{msg}</a></p>)}
       </div>
     )
 
@@ -52,7 +52,8 @@ class Header extends React.Component {
                   onSwitchMenuPopover()
               }
           },
-          data:menuData
+          data:menuData,
+          sidebarFold
       }
 
 
@@ -95,8 +96,8 @@ class Header extends React.Component {
               </li>
               <li>
                 <a>
-                  <Popover overlayStyle={popoverStyle} content={msgContent} placement='bottomRight' title='3 unread message'>
-                    <Badge count={3}>
+                  <Popover overlayStyle={popoverStyle} content={msgContent} placement='bottomRight' title={msgs.length+" unread message"}>
+                    <Badge count={msgs.length}>
                       <Avatar size='small' icon='notification' style={avatarStyle} />
                     </Badge>
                   </Popover>
