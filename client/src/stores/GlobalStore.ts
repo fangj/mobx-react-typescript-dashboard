@@ -25,7 +25,7 @@ export default class GlobalStore {
     @observable menuResponsVisible=false;
     @observable fullScreen = false;
     @observable sidebarBgColor = 'red';
-    @observable sidebarBgImg = '1';
+    @observable sidebarBgImg = 'seu';
     @observable isShowSidebarBgImg = true;
     //login
     @observable loginLoading = false;
