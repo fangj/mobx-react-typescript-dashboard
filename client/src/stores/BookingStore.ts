@@ -5,9 +5,10 @@ import {computed, observable, toJS} from "mobx";
 import * as _ from "lodash";
 
 interface IEvent{
+    type:string,
     title: string,
     start: Date,
-    end: Date
+    end: Date,
 }
 
 export default class BookingStore {
@@ -29,6 +30,7 @@ export default class BookingStore {
     book(type: string, start:Date, end:Date) {
         const item=this.objItems[type];
         const event:IEvent={
+            type:type,
             title:item.name,
             start,
             end
@@ -39,9 +41,9 @@ export default class BookingStore {
 
     remove(event: IEvent) {
         const events=toJS(this.events);
-        console.log(events)
         _.remove(events,event);
-        console.log(events)
         this.events=events;
     }
 }
+
+export const bookingStore=new BookingStore();

@@ -51,7 +51,7 @@ export default class Booking1 extends React.Component<IBooking1, {}> {
     }
     showConfirm=(event)=>{
         //点击已预约事件，是否删除
-        console.log(event)
+        // console.log(event)
         const store = this.props.store;
         Modal.confirm({
             title: '是否删除这次预约?',
@@ -67,7 +67,7 @@ export default class Booking1 extends React.Component<IBooking1, {}> {
     };
     onBooking=(slotInfo)=>{
         //预定
-        console.log(slotInfo);
+        // console.log(slotInfo);
         const store = this.props.store;
         const type = this.props.type;
         store.book(type,slotInfo.start,slotInfo.end);

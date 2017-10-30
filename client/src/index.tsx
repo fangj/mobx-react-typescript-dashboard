@@ -9,7 +9,7 @@ import HomePage from "./routes/HomePage";
 import LoginPage from "./routes/LoginPage";
 import TodoList from "./routes/TodoList";
 import MainFrame from "./frame/MainFrame";
-// import Dashboard from "./routes/Dashboard";
+import Dashboard from "./routes/Dashboard";
 import Setting from "./routes/Setting";
 import Acknowledge from "./routes/Acknowledge";
 import Lock from "./routes/Lock";
@@ -51,7 +51,7 @@ ReactDOM.render((
         <Route path="/lock" component={Lock}/>
         <Route path="/" component={MainFrame} onEnter={onRouteChange}  onChange={onRouteChange}>
             <IndexRoute  component={Booking}/>
-            {/*<Route path="dashboard" component={Dashboard}/>*/}
+            <Route path="dashboard" component={Dashboard}/>
             {/*<Route path="profile" component={Profile}/>*/}
             {/*<Route path="setting" component={Setting}/>*/}
             {/*<Route path="alert" component={Alert}/>*/}
