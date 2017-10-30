@@ -1,9 +1,11 @@
 import * as React from 'react'
 import * as classnames from 'classnames'
 import { Icon, Popover, Badge, Avatar, Input } from 'antd'
-import * as Menus from './menus'
+// import * as Menus from './menus'
+import DataMenu from "./DataMenu";
+
 import * as styles from './layout.less'
-// import {globalStore} from "../stores/GlobalStore";
+import {globalStore} from "../stores/GlobalStore";
 // import {observer} from "mobx-react";
 
 // @observer
@@ -42,15 +44,19 @@ class Header extends React.Component {
       borderRadius: '2px'
     }
 
-    const memusProps = {
-      onMenuClick () {
-        if (siderRespons) {
-          onSwitchMenuPopover()
-        }
+      const {  menukey,menuData } = globalStore;
+      const menuProps = {
+          menukey,
+          onMenuClick () {
+              if (siderRespons) {
+                  onSwitchMenuPopover()
+              }
+          },
+          data:menuData
       }
-    }
 
-    const popoverStyle = {
+
+      const popoverStyle = {
       fontSize: 12
     }
 
@@ -70,7 +76,7 @@ class Header extends React.Component {
                   onVisibleChange={onSwitchMenuPopover}
                   visible={menuResponsVisible}
                   trigger='click'
-                  content={<Menus {...memusProps} />}
+                  content={<DataMenu {...menuProps} />}
                   overlayClassName={styles.popmenu}>
                   <div className={styles.btn}><Icon type='bars' /></div>
                 </Popover>

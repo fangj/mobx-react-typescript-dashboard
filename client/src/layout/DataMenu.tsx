@@ -12,7 +12,10 @@ const SubMenu = Menu.SubMenu
 //import * as styles from './DataMenu.less';
 
 interface IDataMenu {
-    data: any[]
+    data: any[],
+    sidebarFold:boolean,
+    menukey:string,
+    onMenuClick:()=>any
 }
 
 @observer
@@ -23,7 +26,6 @@ export default class DataMenu extends React.Component<IDataMenu, {}> {
     //  };
 
     recursion=(dataSource)=> {
-        const {data,sidebarFold, menukey,onMenuClick} = this.props;
         return (
             dataSource.map((menu, index) => {
                 if (menu.children) {

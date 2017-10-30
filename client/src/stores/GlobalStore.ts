@@ -79,6 +79,7 @@ export default class GlobalStore {
             case "admin":  {this.demo_isAdmin=true;  break;}
             case "teacher":{this.demo_isTeacher=true;break;}
             case "student":{this.demo_isStudent=true;break;}
+            case "demo":break;
             default:{
                 //登陆到parse数据库
                 p2p(Parse.User.logIn(username,password))
