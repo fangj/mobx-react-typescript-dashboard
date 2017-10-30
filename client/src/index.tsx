@@ -13,6 +13,7 @@ import Dashboard from "./routes/Dashboard";
 import Setting from "./routes/Setting";
 import Acknowledge from "./routes/Acknowledge";
 import Lock from "./routes/Lock";
+import Doing from "./routes/Doing";
 import Alert from "./routes/Alert";
 import Charts from "./routes/Charts";
 import Editor from "./routes/Editor";
@@ -64,6 +65,7 @@ ReactDOM.render((
             {/*<Route path="table2" component={Table2}/>*/}
             <Route path="booking" component={Booking}/>
             <Route path="events" component={Events}/>
+            <Route path="do/:type" component={Doing}/>
             <Route path="*" component={Booking}/>
         </Route>
     </Router>

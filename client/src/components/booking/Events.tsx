@@ -9,6 +9,7 @@ import BookingStore from "../../stores/BookingStore";
 //import * as styles from './Doing.less';
 import * as moment from "moment";
 import {Link} from "react-router";
+import {hashHistory} from 'react-router';
 
 const formatDate=(date)=>{
     return moment(date).format("HH:mm");
@@ -47,5 +48,6 @@ export default class Doing extends React.Component<IDoing, {}> {
 
     onEvent=(event)=>{
         console.log(event)
+        hashHistory.push("/do/"+event.type);
     }
 }
